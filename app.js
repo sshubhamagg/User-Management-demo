@@ -6,12 +6,10 @@ var bodyParser=require('body-parser')
 
 var app=express();
 
-mongoose.connect('mongodb://localhost:27017/client');
+mongoose.connect('mongodb://192.168.129.90:27017/user-management',{ useNewUrlParser: true,useUnifiedTopology: true });
 
-mongoose.connection.on('connected',()=>
-{
+mongoose.connection.on('connected',()=>{
     console.log('connected to db');
-    
 });
 
 mongoose.connection.on('error',()=>{

@@ -1,12 +1,11 @@
 var express=require('express');
-var router=express.Router();
+var indexRouter=express.Router();
 var app=express;
 
-var user=require('../controller/userController')
+var userRoute=require('./userRouter')
 
-router.route('/save').post(user.save);
-router.route('/get/:id').get(user.get);
-router.route('update/:id').post(user.update);
-router.route('/getUsers').get(user.getList)
+indexRouter.use('/user',userRoute);
 
-module.exports=router;
+
+
+module.exports=indexRouter;
